@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'rails-i18n'
+gem 'sidekiq'
 
 group :doc do
   gem 'sdoc', require: false
@@ -19,4 +20,7 @@ end
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'puma'
 
-gem 'capistrano', group: :development
+group :development do
+  gem "capistrano", "~> 2.12.0"
+  gem "rvm-capistrano", "~> 1.1.0"  
+end
