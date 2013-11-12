@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'rails-i18n'
 gem 'sidekiq'
+gem "mysql2"
 
 group :doc do
   gem 'sdoc', require: false
