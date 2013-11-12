@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'rails-i18n'
+gem 'devise-i18n'
 gem 'sidekiq'
 gem "mysql2"
 
