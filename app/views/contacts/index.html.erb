@@ -1,38 +1,22 @@
 <h1>所有联系人</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>姓名</th>
-      <th>称谓</th>
       <th>公司</th>
       <th>电话</th>
       <th>邮件</th>
-      <th>QQ</th>
-      <th>微博</th>
-      <th>网站</th>
-      <th>背景资料</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
-        <td><%= contact.full_name %></td>
-        <td><%= contact.title %></td>
-        <td><%= contact.company %></td>
+        <td><%= link_to contact.full_name, contact %></td>
+        <td><%= contact.company.truncate(10) %></td>
         <td><%= contact.phone %></td>
         <td><%= contact.email %></td>
-        <td><%= contact.qq %></td>
-        <td><%= contact.weibo %></td>
-        <td><%= contact.website %></td>
-        <td><%= contact.background_info %></td>
-        <td><%= link_to '查看', contact %></td>
-        <td><%= link_to '编辑', edit_contact_path(contact) %></td>
-        <td><%= link_to '删除', contact, method: :delete, data: { confirm: '你确定吗?' } %></td>
       </tr>
     <% end %>
   </tbody>
