@@ -1,0 +1,11 @@
+<%= form_for [@contact, @contact_note] do |f| %>
+ <h3>编辑备忘</h3> 
+  <%= f.hidden_field :contact_id %>
+  <%= f.text_area :notes %>
+  <br>
+  来源：<%= f.select :source, ["", "邮件", "电话", "见面", "QQ", "微博AT", "微博私信", "微信"] %>
+  时间：<%= f.datetime_select :occurred_on %>
+  <br>
+  <%= f.submit "更新备忘", class: "btn btn-success btn-sm" %>
+  <%= link_to '取消', @contact %>
+<% end %>

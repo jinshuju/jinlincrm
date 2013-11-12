@@ -1,0 +1,9 @@
+<%= form_for [@contact, @contact.contact_notes.new] do |f| %>
+ <h3>添加备忘</h3> 
+  <%= f.text_area :notes %>
+  <br>
+  来源：<%= f.select :source, ["", "邮件", "电话", "见面", "QQ", "微博AT", "微博私信", "微信"] %>
+  时间：<%= f.datetime_select :occurred_on %>
+  <br>
+  <%= f.submit "添加备忘" %>
+<% end %>

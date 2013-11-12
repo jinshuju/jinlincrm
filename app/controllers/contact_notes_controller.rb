@@ -1,10 +1,10 @@
 class ContactNotesController < ApplicationController
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_contact_note, only: [:show, :edit, :update, :destroy]
 
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
+    @contacts = ContactNote.all
   end
 
   # GET /contacts/1
@@ -14,7 +14,8 @@ class ContactNotesController < ApplicationController
 
   # GET /contacts/new
   def new
-    @contact = Contact.new
+    @contact = Contact.find(params[:contact_id])
+    @contact_note = ContactNote.new
   end
 
   # GET /contacts/1/edit
@@ -40,12 +41,11 @@ class ContactNotesController < ApplicationController
   # PATCH/PUT /contacts/1.json
   def update
     respond_to do |format|
-      if @contact.update(contact_params)
+      if @contact_note.update(contact_params)
         format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -53,7 +53,7 @@ class ContactNotesController < ApplicationController
   # DELETE /contacts/1
   # DELETE /contacts/1.json
   def destroy
-    @contact.destroy
+    @contact_note.destroy
     respond_to do |format|
       format.html { redirect_to contacts_url }
       format.json { head :no_content }
@@ -62,12 +62,13 @@ class ContactNotesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_contact
-      @contact = Contact.find(params[:id])
+    def set_contact_note
+      @contact = Contact.find(params[:contact_id])
+      @contact_note = ContactNote.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact_note).permit(:contact_id, :notes)
+      params.require(:contact_note).permit(:contact_id, :notes, :occurred_on, :source)
     end
 end

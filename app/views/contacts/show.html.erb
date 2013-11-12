@@ -10,20 +10,25 @@
 
 <hr>
 
-<%= form_for [@contact, @contact.contact_notes.new] do |f| %>
+<%= form_for(ContactNote.new, url:contact_contact_notes_path(@contact)) do |f| %>
  <h3>添加备忘</h3> 
+  <%= f.hidden_field :contact_id, value:@contact.id %>
   <%= f.text_area :notes %>
   <br>
-  来源：
+  来源：<%= f.select :source, ["", "邮件", "电话", "见面", "QQ", "微博AT", "微博私信", "微信"] %>
+  时间：<%= f.datetime_select :occurred_on %>
   <br>
-  <%= f.submit "添加备忘" %>
+  <%= f.submit "添加备忘", class: "btn btn-success btn-sm" %>
 <% end %>
 
 <hr>
 <% @contact.contact_notes.each do |cn| %>
-  <div class="note"><%=simple_format cn.notes %></div>
+  <div class="note">
+    <h5><%= l cn.occurred_on, format: :long%> <span style="color:#999"><%= cn.source %></span></h5>
+    <%=simple_format cn.notes %>
+    <%= link_to "编辑", edit_contact_contact_note_path(@contact.id, cn.id) %>
+  </div>
 <% end %>
-
 
 <%= content_for :side do %>
 <p>
@@ -50,4 +55,3 @@
 <%= link_to '编辑', edit_contact_path(@contact) %> |
 
 <% end %>
-
