@@ -26,7 +26,7 @@
         <input type="text" class="form-control" style="display:inline;width:40%">
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#">账户设置</a></li>
-            <li><a href="#">退出</a></li>
+            <li><%= link_to "退出", destroy_user_session_path, method: :delete %></li>
           </ul>            
         </div>
       </div>

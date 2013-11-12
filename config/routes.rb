@@ -1,5 +1,6 @@
 Jinlincrm::Application.routes.draw do
 
+  get "home/index"
   resources :contacts
 
   devise_for :users
