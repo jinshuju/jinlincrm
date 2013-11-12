@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JinLin CRM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">导航显示</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">近邻CRM</a>
+        </div>
+        
+        <a class="btn navbar-btn btn-default btn-primary" href="/contacts/new" role="button">新建联系人</a>
+        <a class="btn navbar-btn btn-default btn-primary" href="#" role="button">新建任务</a>
+        <input type="text" class="form-control" style="display:inline;width:40%">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">账户设置</a></li>
+            <li><a href="#">退出</a></li>
+          </ul>            
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      
+      <div class="row">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>  
+        
+        <div class="col-md-2">
+          <ul class="list-group">
+            <a class="list-group-item" href="#">最近动态</a>
+            <a class="list-group-item" href="/contacts">
+              <span class="badge"><%= Contact.count %></span>
+              联系人
+            </a>
+          </ul>
+        </div>
+
+        <div class="col-md-8">
+          <%= yield %>
+        </div>
+
+        <div class="col-md-2">
+          <%= yield :side %>
+        </div>
+
+      </div>
+
+    </div>
+
+</body>
+</html>

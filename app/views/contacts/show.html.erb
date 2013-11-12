@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>姓名</strong>
+  <%= @contact.full_name %>
+</p>
+
+<p>
+  <strong>称谓:</strong>
+  <%= @contact.title %>
+</p>
+
+<p>
+  <strong>公司:</strong>
+  <%= @contact.company %>
+</p>
+
+<p>
+  <strong>电话:</strong>
+  <%= @contact.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @contact.email %>
+</p>
+
+<p>
+  <strong>QQ:</strong>
+  <%= @contact.qq %>
+</p>
+
+<p>
+  <strong>微博:</strong>
+  <%= @contact.weibo %>
+</p>
+
+<p>
+  <strong>网站:</strong>
+  <%= @contact.website %>
+</p>
+
+<p>
+  <strong>背景资料:</strong>
+  <%= @contact.background_info %>
+</p>
+
+<%= link_to '编辑', edit_contact_path(@contact) %> |
+<%= link_to '返回', contacts_path %>
