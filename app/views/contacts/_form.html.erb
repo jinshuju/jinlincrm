@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label "姓名" %><br>
+    <%= f.label "姓名（必须）" %><br>
     <%= f.text_field :full_name %>
   </div>
   <div class="field">
@@ -48,6 +48,6 @@
     <%= f.text_area :background_info %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "保存"%>
   </div>
 <% end %>
