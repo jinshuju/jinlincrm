@@ -1,11 +1,12 @@
 Jinlincrm::Application.routes.draw do
 
-  get "home/index"
   resources :contacts do
     resources :contact_notes
   end
 
   devise_for :users
+
+  get "/home" => "home#index"
   root :to => "home#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
